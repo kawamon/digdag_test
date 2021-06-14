@@ -1,0 +1,12 @@
+_export:
+  td:
+    database: sample_database
+ 
++write_into_td:
+  py>: py_scripts.zipextract.write_to_table
+  database_name: ${td.database}
+  docker:
+    image: "digdag/digdag-python:3.9"
+  _env:
+    TD_API_KEY: ${secret:td.apikey}
+    TD_API_SERVER: "https://api.treasuredata.com"
